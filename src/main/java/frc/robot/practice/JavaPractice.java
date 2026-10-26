@@ -13,7 +13,7 @@ public class JavaPractice {
 
   public static void main(String[] args) {
     // ===== Séance 1 : mon premier programme =====
-    System.out.println("Bonjour, je programme un robot FRC !");
+    System.out.println("Bonjour, je programme un robot FRC ! et je fait te toucher la nuit c'est tres compliqué de tripoter");
 
     // ===== Séance 2 : les variables =====
     // TODO (séance 2)

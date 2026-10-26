@@ -3,8 +3,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      // Lance la simulation du robot AVEC le débogueur : les points d'arrêt (pastilles
-      // rouges) fonctionnent. La fenêtre du simulateur s'ouvre dans le bureau (port 6080).
+      "type": "java",
+      "name": "JavaPractice",
+      "request": "launch",
+      "mainClass": "frc.robot.practice.JavaPractice",
+      "projectName": "codespaceflywheelbob"
+    },
+    {
       "type": "java",
       "name": "Déboguer la simulation",
       "request": "launch",
@@ -20,7 +25,6 @@
       "console": "integratedTerminal"
     },
     {
-      // Exécute le fichier ouvert (ex. JavaPractice.java) avec le débogueur.
       "type": "java",
       "name": "Exécuter le fichier ouvert",
       "request": "launch",
