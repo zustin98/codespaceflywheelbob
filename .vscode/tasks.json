@@ -1,0 +1,32 @@
+// Tâches accessibles par le menu : Terminal > Exécuter la tâche... (Run Task...)
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compiler le robot",
+      "type": "shell",
+      "command": "./gradlew build -x test",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": "$gradle"
+    },
+    {
+      "label": "Simuler le robot",
+      "type": "shell",
+      "command": "./gradlew simulateJava",
+      "problemMatcher": []
+    },
+    {
+      "label": "Lancer les tests",
+      "type": "shell",
+      "command": "./gradlew test",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Préparer la simulation (débogage)",
+      "type": "shell",
+      "command": "./gradlew extractReleaseNative",
+      "problemMatcher": []
+    }
+  ]
+}

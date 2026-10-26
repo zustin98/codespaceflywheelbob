@@ -1,0 +1,30 @@
+// Configurations du panneau "Exécuter et déboguer" (Run and Debug, Ctrl+Maj+D).
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // Lance la simulation du robot AVEC le débogueur : les points d'arrêt (pastilles
+      // rouges) fonctionnent. La fenêtre du simulateur s'ouvre dans le bureau (port 6080).
+      "type": "java",
+      "name": "Déboguer la simulation",
+      "request": "launch",
+      "mainClass": "frc.robot.Main",
+      "preLaunchTask": "Préparer la simulation (débogage)",
+      "vmArgs": "-Djava.library.path=${workspaceFolder}/build/jni/release",
+      "env": {
+        "LD_LIBRARY_PATH": "${workspaceFolder}/build/jni/release",
+        "HALSIM_EXTENSIONS": "${workspaceFolder}/build/jni/release/libhalsim_gui.so",
+        "DISPLAY": ":1"
+      },
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      // Exécute le fichier ouvert (ex. JavaPractice.java) avec le débogueur.
+      "type": "java",
+      "name": "Exécuter le fichier ouvert",
+      "request": "launch",
+      "mainClass": "${file}"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Fichiers générés automatiquement : on ne les sauvegarde pas dans Git.
+.gradle/
+build/
+bin/
+out/
+.idea/
+*.iml
+.DS_Store
+
+# Fichiers créés par la simulation
+networktables.json
+simgui-window.json
+ctre_sim/

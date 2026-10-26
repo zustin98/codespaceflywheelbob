@@ -1,0 +1,55 @@
+// Configuration du Codespace : Java 17 + WPILib 2026 + un petit bureau virtuel
+// (accessible dans le navigateur) pour afficher la fenêtre du simulateur.
+{
+  "name": "FRC Java 2026 - Volant",
+  // Image Java 17 + bibliothèques graphiques : voir le Dockerfile.
+  "build": { "dockerfile": "Dockerfile" },
+
+  "features": {
+    // Bureau virtuel visible dans un onglet du navigateur (noVNC), port 6080.
+    // Pas de mot de passe : le port d'un Codespace est privé (seul son propriétaire,
+    // connecté à GitHub, peut l'ouvrir).
+    "ghcr.io/devcontainers/features/desktop-lite:1": {
+      "password": "noPassword",
+      "webPort": "6080",
+      "vncPort": "5901"
+    }
+  },
+
+  "remoteEnv": {
+    "DISPLAY": ":1",
+    "LIBGL_ALWAYS_SOFTWARE": "1"
+  },
+
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": { "label": "Bureau du simulateur", "onAutoForward": "notify" },
+    "5901": { "label": "VNC", "onAutoForward": "ignore" },
+    "1735": { "label": "NetworkTables 3", "onAutoForward": "ignore" },
+    "5810": { "label": "NetworkTables 4", "onAutoForward": "ignore" }
+  },
+
+  // Télécharge WPILib/REVLib une première fois.
+  // onCreateCommand (et non postCreateCommand) : VS Code attend la fin avant de s'ouvrir.
+  "onCreateCommand": "bash .devcontainer/on-create.sh",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-gradle"
+      ],
+      "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.import.gradle.wrapper.enabled": true,
+        "java.server.launchMode": "Standard",
+        "files.encoding": "utf8"
+      }
+    }
+  },
+
+  // 2 cœurs / 8 Go suffisent (c'est le plus petit Codespace, le moins coûteux en heures).
+  "hostRequirements": {
+    "cpus": 2
+  }
+}
